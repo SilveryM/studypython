@@ -8,7 +8,7 @@
 
 def fibs(num):
     result = [0, 1]
-    for i in range(num):
+    for _ in range(num):
         result.append(result[-2] + result[-1])
     return result
 

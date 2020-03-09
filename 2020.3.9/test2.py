@@ -1,7 +1,8 @@
-from tkinter import *
+# from tkinter import *
+import tkinter
 
-btn = Button()
+btn = tkinter.Button()
 btn.pack()
 btn['text'] = 'click me'
 
-mainloop()
+tkinter.mainloop()
