@@ -39,18 +39,18 @@ if __name__ == '__main__':
                 content = re.findall(content_pattern, all_content[0])
 
             if len(menu) > 0:
-                file = open('E:/study/studypython/practice/practice_' +
-                            str(i) + '.py',
-                            'w',
-                            encoding="utf-8")
-                file.write('#' + menu[0] + '\n')
-                file.write('\'\'\'\n')
-                for c in content:
-                    if c[0] == '':
-                        file.write('\n')
-                    else:
-                        file.write(c[2] + ' ')
-                file.write('\n\'\'\'')
-                file.close()
+                # file = open('E:/study/studypython/practice/practice_' +
+                #             str(i) + '.py',
+                #             'w',
+                #             encoding="utf-8")
+                # file.write('#' + menu[0] + '\n')
+                # file.write('\'\'\'\n')
+                # for c in content:
+                #     if c[0] == '':
+                #         file.write('\n')
+                #     else:
+                #         file.write(c[2] + ' ')
+                # file.write('\n\'\'\'')
+                # file.close()
 
         time.sleep(0.5)
