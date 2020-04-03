@@ -13,27 +13,27 @@ f2  =  f1  +  f2
 '''
 
 
-class Rabit(object):
+class Rabbit(object):
     def __init__(self, month):
         self._birth_month = month
 
     def Breed(self, month):
         if (month - self._birth_month >= 3):
-            return Rabit(month)
+            return Rabbit(month)
         return None
 
 
 if __name__ == "__main__":
-    rabit_list = []
+    rabbit_list = []
     cur_month = 0
-    rabit_list.append(Rabit(cur_month))
+    rabbit_list.append(Rabbit(cur_month))
 
     all_month = int(input('months:')) + 1
     while cur_month < all_month:
-        for rabit in rabit_list:
-            new_rabit = rabit.Breed(cur_month)
-            if new_rabit != None:
-                rabit_list.append(new_rabit)
+        for rabbit in rabbit_list:
+            new_rabbit = rabbit.Breed(cur_month)
+            if new_rabbit != None:
+                rabbit_list.append(new_rabbit)
 
-        print('month:%d, rabit_num:%d' % (cur_month, len(rabit_list)))
+        print('month:%d, rabbit_num:%d' % (cur_month, len(rabbit_list)))
         cur_month += 1
