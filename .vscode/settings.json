@@ -1,4 +1,5 @@
 {
   "python.formatting.provider": "yapf",
-  "python.pythonPath": "C:\\Program Files (x86)\\Python38-32\\python.exe"
+  "python.pythonPath": "C:\\Program Files (x86)\\Python38-32\\python.exe",
+  "editor.fontSize": 20
 }
