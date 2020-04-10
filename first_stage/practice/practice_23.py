@@ -1,18 +1,19 @@
 #打印出如下图案（菱形）:
-'''
-#!/usr/bin/python 
-# -*- coding: UTF-8 -*- 
-from   sys   import   stdout 
-for   i   in   range ( 4 ) 
-for   j   in   range ( 2  -  i  +  1 ) 
-stdout . write ( '   ' ) 
-for   k   in   range ( 2  *  i  +  1 ) 
-stdout . write ( ' * ' ) 
-print 
-for   i   in   range ( 3 ) 
-for   j   in   range ( i  +  1 ) 
-stdout . write ( '   ' ) 
-for   k   in   range ( 4  -  2  *  i  +  1 ) 
-stdout . write ( ' * ' ) 
-print 
-'''
+import math
+size = 10
+num = size / 2
+for i in range(1, size):
+    if i <= size / 2:
+        for j in range(1, size):
+            if j <= num - i or j >= num + i:
+                print(' ', end='')
+            else:
+                print('*', end='')
+    else:
+        for j in range(1, size):
+            if j <= num - (size - i) or j >= num + (size - i):
+                print(' ', end='')
+            else:
+                print('*', end='')
+    print('')
+print('')
