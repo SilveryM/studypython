@@ -1,19 +1,16 @@
 #打印出如下图案（菱形）:
-import math
-size = 10
+size = int(input('size:'))
 num = size / 2
 for i in range(1, size):
-    if i <= size / 2:
-        for j in range(1, size):
-            if j <= num - i or j >= num + i:
-                print(' ', end='')
-            else:
-                print('*', end='')
+    if i <= num:
+        tip = i
     else:
-        for j in range(1, size):
-            if j <= num - (size - i) or j >= num + (size - i):
-                print(' ', end='')
-            else:
-                print('*', end='')
+        tip = size - i
+
+    for j in range(1, size):
+        if j <= num - tip or j >= num + tip:
+            print(' ', end='')
+        else:
+            print('*', end='')
     print('')
 print('')
