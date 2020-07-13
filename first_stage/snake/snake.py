@@ -2,6 +2,7 @@ import pygame
 from os import path
 from settings import Settings
 
+
 class Snake():
     def __init__(self, aiSettings, screen):
         self.aiSettings = aiSettings
@@ -21,6 +22,11 @@ class Snake():
         self.screen.blit(self.image, self.rect)
 
     def update(self):
+        if self.rect.left <= self.screenRect.left:
+            return
+        elif self.rect.right >= self.screenRect.right:
+            return
+
         if self.direction == self.aiSettings.Direction['Left']:
             self.rect.centerx -= self.aiSettings.speed
         elif self.direction == self.aiSettings.Direction['Up']:

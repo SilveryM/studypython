@@ -1,11 +1,7 @@
 import sys
 import pygame
-from settings import Settings
 
-settings = Settings()
-
-
-def checkEvent(snake):
+def checkEvent(settings, snake):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit(0)
@@ -24,7 +20,7 @@ def checkEvent(snake):
                     snake.direction = settings.Direction['Down']
 
 
-def updateScreen(aiSettings, screen, snake):
-    screen.fill(aiSettings.bgColor)
+def updateScreen(settings, screen, snake):
+    screen.fill(settings.bgColor)
     snake.blitme()
     pygame.display.flip()

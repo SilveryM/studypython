@@ -15,7 +15,7 @@ def runGame():
     snake = Snake(aiSettings, screen)
 
     while True:
-        gf.checkEvent(snake)
+        gf.checkEvent(aiSettings, snake)
         snake.update()
         gf.updateScreen(aiSettings, screen, snake)
 
