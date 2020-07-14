@@ -9,3 +9,6 @@ class Settings():
 
         #难度(速度)
         self.speed = 10
+
+        #sprite基本大小
+        self.spriteSize = 25

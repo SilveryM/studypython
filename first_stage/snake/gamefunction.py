@@ -1,16 +1,15 @@
 import sys
 import pygame
 
-def checkGameOver(screen, snake):
-    screenRect = screen.get_rect()
-    if snake.rect.left <= screenRect.left:
-        return True
-    elif snake.rect.right >= screenRect.right:
-        return True
-    return False
 
-def checkEvent(settings, screen, snake):
-    if checkGameOver(screen, snake):
+def checkGameOver(screen, snake, gs):
+    screenRect = screen.get_rect()
+    if snake.rect.left <= screenRect.left or snake.rect.right >= screenRect.right:
+        gs.gameOver()
+
+
+def checkEvent(settings, screen, snake, gs):
+    if checkGameOver(screen, snake, gs):
         return
 
     for event in pygame.event.get():
@@ -31,7 +30,13 @@ def checkEvent(settings, screen, snake):
                     snake.direction = settings.Direction['Down']
 
 
-def updateScreen(settings, screen, snake):
+def updateFoods(settings, snake, foodGroup):
+    if pygame.sprite.spritecollideany(snake, foodGroup):
+        pass
+
+
+def updateScreen(settings, screen, snake, foodGroup):
     screen.fill(settings.bgColor)
     snake.blitme()
+    foodGroup.draw(screen)
     pygame.display.flip()
