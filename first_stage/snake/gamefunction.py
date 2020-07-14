@@ -1,7 +1,18 @@
 import sys
 import pygame
 
-def checkEvent(settings, snake):
+def checkGameOver(screen, snake):
+    screenRect = screen.get_rect()
+    if snake.rect.left <= screenRect.left:
+        return True
+    elif snake.rect.right >= screenRect.right:
+        return True
+    return False
+
+def checkEvent(settings, screen, snake):
+    if checkGameOver(screen, snake):
+        return
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit(0)
