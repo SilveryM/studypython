@@ -30,3 +30,7 @@ class Snake():
             self.rect.centerx += self.settings.speed
         elif self.direction == self.settings.Direction['Down']:
             self.rect.centery += self.settings.speed
+            
+    def addTail(self, foodGroup):
+        food = foodGroup.sprites().pop()
+        

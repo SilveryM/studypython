@@ -32,7 +32,7 @@ def checkEvent(settings, screen, snake, gs):
 
 def updateFoods(settings, snake, foodGroup):
     if pygame.sprite.spritecollideany(snake, foodGroup):
-        pass
+        snake.addTail(foodGroup)
 
 
 def updateScreen(settings, screen, snake, foodGroup):
