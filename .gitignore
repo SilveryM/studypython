@@ -1,4 +1,4 @@
 .vscode/launch.json
 .vscode/.ropeproject/config.py
 .vscode/.ropeproject/objectdb
-first_stage/snake/__pycache__/
+first_stage/snake/__pycache__
