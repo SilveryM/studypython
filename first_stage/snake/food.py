@@ -31,11 +31,13 @@ class Food(Sprite):
         self.rect = self.image.get_rect()
         self.screenRect = self.screen.get_rect()
 
-        widthNum = self.screenRect.width / self.settings.spriteSize
-        heightNum = self.screenRect.height / self.settings.spriteSize
+        widthNum = self.screenRect.width / self.settings.spriteSize - 1
+        heightNum = self.screenRect.height / self.settings.spriteSize - 1
 
-        self.rect.centerx = (random.random() * 10000 % widthNum) * self.settings.spriteSize
-        self.rect.centery = (random.random() * 10000 % heightNum) * self.settings.spriteSize
+        self.rect.centerx = (random.random() * 10000 % widthNum +
+                             0.5) * self.settings.spriteSize
+        self.rect.centery = (random.random() * 10000 % heightNum +
+                             0.5) * self.settings.spriteSize
 
     def blitme(self):
         self.screen.blit(self.image, self.rect)
