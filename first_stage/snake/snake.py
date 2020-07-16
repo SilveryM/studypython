@@ -15,7 +15,6 @@ class Snake():
 
         self.rect.centerx = self.screenRect.centerx
         self.rect.centery = self.screenRect.centery
-
         self.direction = self.settings.Direction['Left']
 
         #身体关节列表
@@ -80,3 +79,12 @@ class Snake():
                 rect.centery = headRect.centery - self.settings.spriteSize
 
         self.imageList.append([image, rect])
+
+    def Reset(self):
+        self.rect.centerx = self.screenRect.centerx
+        self.rect.centery = self.screenRect.centery
+        self.direction = self.settings.Direction['Left']
+
+        image = self.imageList[0][0]
+        self.imageList.clear()
+        self.imageList.append([image, self.rect])

@@ -22,6 +22,10 @@ class FoodManager():
         if self.foodGroup:
             self.foodGroup.remove(self.curFood)
 
+    def Reset(self):
+        self.clearFood()
+        self.createFood()
+
 class Food(Sprite):
     def __init__(self, settings, screen):
         super(Food, self).__init__()
