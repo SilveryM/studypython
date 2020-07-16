@@ -15,7 +15,7 @@ def runGame():
     settings = Settings()
     screen = pygame.display.set_mode(
         (settings.screenWidth, settings.screenHegiht))
-    pygame.display.set_caption('TestGame')
+    pygame.display.set_caption(settings.gameName)
 
     interval = 1.0 / 60
     nextTime = time.time() + interval
