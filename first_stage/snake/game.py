@@ -33,7 +33,6 @@ def runGame():
     #食物管理器
     foodManager = FoodManager(settings, screen)
 
-    foodManager.createFood()
     while True:
         if time.time() < nextTime:
             continue
