@@ -25,9 +25,12 @@ def runGame():
     #创建开始按钮
     playButton = Button(settings, screen, "Play")
 
-    #创建贪吃蛇
     gs = Gamestats(settings)
+    
+    #创建贪吃蛇
     snake = Snake(settings, screen)
+    
+    #食物管理器
     foodManager = FoodManager(settings, screen)
 
     foodManager.createFood()
