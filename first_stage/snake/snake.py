@@ -53,10 +53,30 @@ class Snake():
             nextCenterX = tempX
             nextCenterY = tempY
 
+            pass
+
             
     def addTail(self, foodGroup):
         food = foodGroup.sprites().pop()
 
         spritesPath = path.dirname(__file__) + '/sprites/body.bmp'
         image = pygame.image.load(spritesPath)
-        self.imageList.append([image, food.rect])
+        rect = food.rect
+
+        #只有头
+        if len(self.imageList) == 1:
+            headRect = self.imageList[0][1]
+            if self.direction == self.settings.Direction['Left']:
+                rect.centerx = headRect.centerx + self.settings.spriteSize
+                rect.centery = headRect.centery
+            elif self.direction == self.settings.Direction['Up']:
+                rect.centerx = headRect.centerx
+                rect.centery = headRect.centery + self.settings.spriteSize
+            elif self.direction == self.settings.Direction['Right']:
+                rect.centerx = headRect.centerx - self.settings.spriteSize
+                rect.centery = headRect.centery
+            elif self.direction == self.settings.Direction['Down']:
+                rect.centerx = headRect.centerx
+                rect.centery = headRect.centery - self.settings.spriteSize
+
+        self.imageList.append([image, rect])

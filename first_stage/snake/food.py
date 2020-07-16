@@ -12,12 +12,15 @@ class FoodManager():
         self.screen = screen
 
         self.foodGroup = Group()
+        self.curFood = None
 
     def createFood(self):
-        food = Food(self.settings, self.screen)
-        self.foodGroup.add(food)
-        return food
+        self.curFood = Food(self.settings, self.screen)
+        self.foodGroup.add(self.curFood)
 
+    def clearFood(self):
+        if self.foodGroup:
+            self.foodGroup.remove(self.curFood)
 
 class Food(Sprite):
     def __init__(self, settings, screen):

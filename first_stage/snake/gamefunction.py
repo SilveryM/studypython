@@ -35,7 +35,8 @@ def updateFoods(settings, snake, foodManager):
     if pygame.sprite.spritecollideany(snake, foodGroup):
         snake.addTail(foodGroup)
         pygame.sprite.spritecollide(snake, foodGroup, True)
-
+        
+        foodManager.clearFood()
         foodManager.createFood()
 
 
