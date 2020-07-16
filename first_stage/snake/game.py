@@ -17,7 +17,7 @@ def runGame():
         (settings.screenWidth, settings.screenHegiht))
     pygame.display.set_caption(settings.gameName)
 
-    interval = 1.0 / 60
+    interval = 1.0 / (settings.frame * 2)
     nextTime = time.time() + interval
 
     #创建贪吃蛇
