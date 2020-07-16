@@ -3,6 +3,19 @@ import random
 
 from os import path
 from pygame.sprite import Sprite
+from pygame.sprite import Group
+
+class FoodManager():
+    def __init__(self, settings, screen):
+        self.settings = settings
+        self.screen = screen
+
+        self.foodGroup = Group()
+    
+    def createFood(self):
+        food = Food(self.settings, self.screen)
+        self.foodGroup.add(food)
+        return food
 
 class Food(Sprite):
     def __init__(self, settings, screen):
@@ -11,7 +24,7 @@ class Food(Sprite):
         self.settings = settings
         self.screen = screen
 
-        spritesPath = path.dirname(__file__) + '\sprites\head.bmp'
+        spritesPath = path.dirname(__file__) + '/sprites/food.bmp'
         self.image = pygame.image.load(spritesPath)
         self.rect = self.image.get_rect()
         self.screenRect = self.screen.get_rect()

@@ -30,9 +30,13 @@ def checkEvent(settings, screen, snake, gs):
                     snake.direction = settings.Direction['Down']
 
 
-def updateFoods(settings, snake, foodGroup):
+def updateFoods(settings, snake, foodManager):
+    foodGroup = foodManager.foodGroup
     if pygame.sprite.spritecollideany(snake, foodGroup):
         snake.addTail(foodGroup)
+        pygame.sprite.spritecollide(snake, foodGroup, True)
+
+        foodManager.createFood()
 
 
 def updateScreen(settings, screen, snake, foodGroup):

@@ -8,9 +8,9 @@ class Snake():
         self.settings = settings
         self.screen = screen
 
-        spritesPath = path.dirname(__file__) + '\sprites\head.bmp'
-        self.image = pygame.image.load(spritesPath)
-        self.rect = self.image.get_rect()
+        spritesPath = path.dirname(__file__) + '/sprites/head.bmp'
+        image = pygame.image.load(spritesPath)
+        self.rect = image.get_rect()
         self.screenRect = self.screen.get_rect()
 
         self.rect.centerx = self.screenRect.centerx
@@ -18,19 +18,45 @@ class Snake():
 
         self.direction = self.settings.Direction['Left']
 
+        #身体关节列表
+        self.imageList = []
+        self.imageList.append([image, self.rect])
+
     def blitme(self):
-        self.screen.blit(self.image, self.rect)
+        for i in self.imageList:
+            [image, rect] = i
+            self.screen.blit(image, rect)
 
     def update(self):
+        nextCenterX = 0
+        nextCenterY = 0
         if self.direction == self.settings.Direction['Left']:
-            self.rect.centerx -= self.settings.speed
+            nextCenterX = self.rect.centerx - self.settings.speed
+            nextCenterY = self.rect.centery
         elif self.direction == self.settings.Direction['Up']:
-            self.rect.centery -= self.settings.speed
+            nextCenterX = self.rect.centerx
+            nextCenterY = self.rect.centery - self.settings.speed
         elif self.direction == self.settings.Direction['Right']:
-            self.rect.centerx += self.settings.speed
+            nextCenterX = self.rect.centerx + self.settings.speed
+            nextCenterY = self.rect.centery
         elif self.direction == self.settings.Direction['Down']:
-            self.rect.centery += self.settings.speed
+            nextCenterX = self.rect.centerx
+            nextCenterY = self.rect.centery + self.settings.speed
+        
+        for i in self.imageList:
+            [image, rect] = i
+
+            tempX = rect.centerx
+            tempY = rect.centery
+            rect.centerx = nextCenterX
+            rect.centery = nextCenterY
+            nextCenterX = tempX
+            nextCenterY = tempY
+
             
     def addTail(self, foodGroup):
         food = foodGroup.sprites().pop()
-        
+
+        spritesPath = path.dirname(__file__) + '/sprites/body.bmp'
+        image = pygame.image.load(spritesPath)
+        self.imageList.append([image, food.rect])
