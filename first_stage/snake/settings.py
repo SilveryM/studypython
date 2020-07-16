@@ -1,7 +1,7 @@
 class Settings():
     def __init__(self):
-        self.screenWidth = 800
-        self.screenHegiht = 600
+        self.screenWidth = 400
+        self.screenHegiht = 300
         self.bgColor = (230, 230, 230)
 
         #方向枚举
